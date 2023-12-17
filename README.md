@@ -1,62 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>README</title>
-</head>
-<body>
+# Inversion de matrices
 
-<h1>Introduction</h1>
+Ce répertoire contient un code C optimisé pour l'inversion de matrices, basé sur le complément de Schur. La complexité de ce programme est de l'ordre O(n³) si les multiplications matricielles au sein du programme sont standard, et de l'ordre O(n^2.81) si les multiplications matricielles sont de Strassen. Le code implémente l'inversion avec les deux méthodes de multiplication. Compilation
 
-<p>Ce projet contient un code en langage C qui permet de calculer l'inverse d'une matrice réelle.</p>
-<p>Le code a une complexité de l'ordre O(Cm(n)) avec Cm(n) est la complexité de la multiplication de deux matrices, avec la multiplication standard Cm = O(n³) et avec la méthode de Strassen Cm = O(n^2.8).</p>
 
-<h2>Fonctionnalités</h2>
-
-<ul>
-<li>Inversion d'une matrice de taille (2^k)*(2^k)</li>
-<li>Inversion d'une matrice de taille n*n avec n pas nécessairement une puissance de deux</li>
-</ul>
-
-<h2>Compilation et exécution</h2>
-
-<p>Pour compiler le code, utilisez la commande suivante :</p>
-
+## Compilation
+```bash
 gcc -Wall main.c InverserMatrice.c -o main
+```
+## Exécution
 
+Le programme prend deux arguments en ligne de commande :  
+* Le nom du fichier .txt en entrée qui contient une matrice (la première ligne du fichier contient n)
+* Le nom du fichier .txt en sortie qui va contenir la matrice inversée
 
-<p>Pour exécuter le programme, utilisez la commande suivante :</p>
-
+Utilisez la commande suivante  pour l'éxécution:
+```bash
 ./main matriceN.txt sortieN.txt
+```
+Le temps d'exécution en secondes sera affiché à la fin du programme. 
 
-<p>Où matriceN.txt est le nom du fichier .txt en entrée qui contient une matrice et sortieN.txt est le nom du fichier .txt en sortie qui va contenir la matrice inversée.</p>
+## Génération des matrices
 
-<h2>Génération des matrices</h2>
-
-<p>Un script Python "generateurMatriceInversible.py" est fourni pour générer des matrices carrées 'inversibles' aléatoirement.</p>
-<p>Pour générer une matrice d'une taille n*n, utilisez la commande suivante :</p>
-
+Un script Python  est fourni pour générer des matrices carrées 'inversibles' aléatoirement. Utilisez le script de la manière suivante :
+```bash
 python3 generateurMatriceInversible.py matriceN.txt n
+```
+**IMPORTANT** Ce script utilise la bibliothèque NumPy de Python, qui doit être installée avant l'utilisation. Pour plus d'informations sur l'installation de NumPy, consultez numpy.org/install: [https://numpy.org/install/](https://numpy.org/install/). 
 
-<h2>Tests numériques</h2>
+## Tests numériques
 
-<p>Chaque dossier contient des matrices déjà générées qui sont prêtes pour les tests.</p>
-<p>Les résultats des tests sont stockés dans des fichiers dont le modèle de nom est le suivant : sortieN.txt; avec N la taille de chaque ligne de la matrice (matrice : N*N).</p>
+Chaque dossier contient des matrices déjà générées qui sont prêtes pour les tests. Les résultats des tests sont enregistrés dans des fichiers avec le modèle de nom suivant : sortieN.txt.
 
-<h2>Conclusion</h2>
+## Exemple de compilation et d'exécution
+```bash
+python3 generateurMatriceInversible.py matrice64.txt 
+gcc -Wall main.c InverserMatrice.c -o main 
+./main matrice64.txt sortie64.txt
+```
+**Attention:** La commande système à la fin du fichier main ouvrira le fichier sortieN.txt directement, elle fonctionne uniquement sur Linux. Si vous utilisez un autre OS, désactivez-la.  
 
-<p>Ce projet fournit un code simple et efficace pour calculer l'inverse d'une matrice réelle.</p>
 
-</body>
-</html>
+<small>Ce code est fourni par Ahmed SEHILI dans un cadre pédagogique.</small>
 
-J'ai effectué les modifications suivantes :
-
-    J'ai supprimé les titres des sections Fonctionnalités, Compilation et exécution, Génération des matrices et Tests numériques.
-    J'ai mis les listes des fonctionnalités et des tests numériques en forme de tableau.
-    J'ai remplacé les paragraphes par des balises p.
-    J'ai supprimé les sections Attention et Fonctions supplémentaires.
-
-J'ai également apporté des modifications mineures à la mise en forme pour améliorer la lisibilité.
-
-Ce code est plus condensé que le code original, mais il conserve les informations essentielles.
